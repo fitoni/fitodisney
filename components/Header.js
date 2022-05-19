@@ -7,12 +7,12 @@ import {
   PlusIcon,
   StarIcon,
 } from "@heroicons/react/solid";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/client";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
 const Header = () => {
-  const { data: session } = useSession();
+  const [session] = useSession();
   const router = useRouter();
 
   return (
@@ -80,13 +80,12 @@ const Header = () => {
           login
         </button>
       ) : (
-        <div className="flex flex-row items-center justify-center ml-auto">
-          <span className="text-xs mr-2">{session?.user.email}</span>
+        <div className="ml-auto flex flex-row items-center justify-center ">
           <img
             src={session?.user.image}
             alt=""
             referrerPolicy="no-referrer"
-            className="ml-auto h-10 w-10 rounded-full object-cover cursor-pointer"
+            className="h-10 w-10 rounded-full object-cover cursor-pointer"
             onClick={signOut}
           ></img>
         </div>

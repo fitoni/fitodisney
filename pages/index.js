@@ -1,4 +1,4 @@
-import { useSession, getSession } from "next-auth/react";
+import { useSession, getSession } from "next-auth/client";
 import Head from "next/head";
 import Header from "../components/Header";
 import Landing from "../components/landing";
@@ -13,9 +13,8 @@ export default function Index({
   popularShows,
   topRatedShows,
 }) {
-  const { data: session, status: authStatus } = useSession();
+  const [session] = useSession();
   console.log(">> session = ", session);
-  console.log(">> authStatus = ", authStatus);
 
   return (
     <div>
@@ -28,14 +27,11 @@ export default function Index({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Header></Header>
       {!session ? (
-        <>
-          <Header></Header>
-          <Landing></Landing>
-        </>
+        <Landing></Landing>
       ) : (
         <main className="relative after:absolute after:inset-0 min-h-screen after:bg-home after:bg-center after:bg-cover after:bg-no-repeat after:bg-fixed after:-z-[2]">
-          <Header></Header>
           <SlidingHero></SlidingHero>
           <MovieProvider></MovieProvider>
           <MovieSlider
@@ -64,7 +60,7 @@ export default function Index({
 }
 
 export async function getServerSideProps(context) {
-  const session = await getSession();
+  const session = await getSession(context);
 
   const [
     popularMoviesResource,

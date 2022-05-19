@@ -5,14 +5,14 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 import Header from "../../components/Header";
-import { getSession, useSession } from "next-auth/react";
+import { getSession, useSession } from "next-auth/client";
 import SlidingHero from "./../../components/SlidingHero";
 
 import { PlusIcon, XIcon } from "@heroicons/react/solid";
 import ReactPlayer from "react-player";
 
 const Show = ({ result }) => {
-  const { data: session } = useSession();
+  const [session] = useSession();
   const router = useRouter();
   const [showPlayer, setShowPlayer] = useState(false);
 

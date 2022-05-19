@@ -1,12 +1,12 @@
-import { SessionProvider } from "next-auth/react";
+import { Provider } from "next-auth/client";
 import "../styles/globals.css";
 
-function MyApp({ Component, pageProps: { session, ...pageProps } }) {
+function MyApp({ Component, pageProps }) {
   return (
     <>
-      <SessionProvider session={session} refetchInterval={5 * 60}>
+      <Provider session={pageProps.session}>
         <Component {...pageProps} />
-      </SessionProvider>
+      </Provider>
     </>
   );
 }

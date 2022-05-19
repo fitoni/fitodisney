@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Image from "next/image";
+import { signIn } from "next-auth/client";
 
 const Landing = () => {
   return (
@@ -32,7 +33,10 @@ const Landing = () => {
             height="150"
             objectFit="contain"
           ></Image>
-          <button className="bg-blue-600 uppercase text-xl tracking-wide font-extrabold py-4 px-6 rounded-md hover:bg-blue-400 hover:text-blue-800">
+          <button
+            className="bg-blue-600 uppercase text-xl tracking-wide font-extrabold py-4 px-6 rounded-md hover:bg-blue-400 hover:text-blue-800"
+            onClick={signIn}
+          >
             beli 3 paket diatas
           </button>
           <p className="text-sm text-center">
