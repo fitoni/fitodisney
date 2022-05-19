@@ -14,7 +14,6 @@ export default function Index({
   topRatedShows,
 }) {
   const [session] = useSession();
-  console.log(">> session = ", session);
 
   return (
     <div>
