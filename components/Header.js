@@ -75,7 +75,7 @@ const Header = () => {
       {!session ? (
         <button
           className="ml-auto uppercase border rounded px-4 py-1 font-medium tracking-wide hover:bg-white hover:text-black transition duration-500"
-          onClick={() => signIn("google")}
+          onClick={signIn}
         >
           login
         </button>
@@ -85,7 +85,7 @@ const Header = () => {
           alt=""
           referrerPolicy="no-referrer"
           className="ml-auto h-10 w-10 rounded-full object-cover cursor-pointer"
-          onClick={() => signOut()}
+          onClick={signOut}
         ></img>
       )}
     </header>
