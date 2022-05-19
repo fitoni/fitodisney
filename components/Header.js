@@ -14,7 +14,6 @@ import Link from "next/link";
 const Header = () => {
   const { data: session } = useSession();
   const router = useRouter();
-  console.log(">> session = ", session);
 
   return (
     <header className="flex items-center sticky top-0 z-[1000] h-[72px] px-10 md:px-12 bg-[#040714]">

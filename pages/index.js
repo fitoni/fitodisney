@@ -13,7 +13,9 @@ export default function Index({
   popularShows,
   topRatedShows,
 }) {
-  const { data: session } = useSession();
+  const { data: session, status: authStatus } = useSession();
+  console.log(">> session = ", session);
+  console.log(">> authStatus = ", authStatus);
 
   return (
     <div>
