@@ -14,6 +14,7 @@ import Link from "next/link";
 const Header = () => {
   const { data: session } = useSession();
   const router = useRouter();
+  console.log(">> session = ", session);
 
   return (
     <header className="flex items-center sticky top-0 z-[1000] h-[72px] px-10 md:px-12 bg-[#040714]">
@@ -80,13 +81,16 @@ const Header = () => {
           login
         </button>
       ) : (
-        <img
-          src={session.user.image}
-          alt=""
-          referrerPolicy="no-referrer"
-          className="ml-auto h-10 w-10 rounded-full object-cover cursor-pointer"
-          onClick={signOut}
-        ></img>
+        <div className="flex flex-row items-center justify-center ml-auto">
+          <span className="text-xs mr-2">{session?.user.email}</span>
+          <img
+            src={session?.user.image}
+            alt=""
+            referrerPolicy="no-referrer"
+            className="ml-auto h-10 w-10 rounded-full object-cover cursor-pointer"
+            onClick={signOut}
+          ></img>
+        </div>
       )}
     </header>
   );
