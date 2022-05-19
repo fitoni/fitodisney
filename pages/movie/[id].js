@@ -42,6 +42,7 @@ const Movie = ({ result }) => {
         <section className="relative z-50">
           <div className="relative min-h-[calc(100vh-72px)]">
             <Image
+              priority={true}
               src={
                 result.backdrop_path
                   ? `${TMDB_HOST_URL}${result.backdrop_path}`

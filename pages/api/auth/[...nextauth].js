@@ -18,12 +18,4 @@ export default NextAuth({
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
-  callbacks: {
-    async session({ session, user, token }) {
-      return session;
-    },
-    async redirect({ url, baseUrl }) {
-      return Promise.resolve(url);
-    },
-  },
 });
