@@ -1,9 +1,9 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import { firestoreDb } from "../../../firebase-config";
 
 export default NextAuth({
   // Configure one or more authentication providers
+  site: process.env.NEXTAUTH_URL,
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
@@ -17,5 +17,10 @@ export default NextAuth({
       },
     }),
   ],
-  secret: process.env.NEXT_AUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
+  callbacks: {
+    async session({ session, user, token }) {
+      return session;
+    },
+  },
 });

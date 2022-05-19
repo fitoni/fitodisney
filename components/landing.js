@@ -16,9 +16,9 @@ const Landing = () => {
 
       <div className="relative min-h-[calc(100vh-72px)] ">
         <Image
+          priority={true}
           src="/images/hero-background.jpg"
           alt=""
-          loading="lazy"
           layout="fill"
           objectFit="cover"
         ></Image>

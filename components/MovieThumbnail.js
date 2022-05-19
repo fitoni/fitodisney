@@ -8,7 +8,7 @@ const MovieThumbnail = ({ thumbnail }) => {
 
   return (
     <div
-      className="flex min-w-[170px] min-h-[270px] md:min-w-[220px] md:min-h-[320px] rounded-lg overflow-hidden shadow-xl cursor-pointer border-[3px] border-[#f9f9f9] border-opacity-10 hover:border-opacity-80 hover:shadow-2xl transform hover:scale-105 transition duration-300"
+      className="relative flex min-w-[170px] min-h-[270px] md:min-w-[220px] md:min-h-[320px] rounded-lg overflow-hidden shadow-xl cursor-pointer border-[3px] border-[#f9f9f9] border-opacity-10 hover:border-opacity-80 hover:shadow-2xl transform hover:scale-105 transition duration-300"
       onClick={() => router.push(`/movie/${thumbnail.id}`)}
     >
       <Image
