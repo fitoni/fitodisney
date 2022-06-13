@@ -18,7 +18,7 @@ export default function Index({
   return (
     <div>
       <Head>
-        <title>FITO+ Hotstar</title>
+        <title>FITO+ Hotstar - Streaming Film Terkini</title>
         <meta
           name="description"
           content="aplikasi berbasis Next.js dan TailwindCSS "
